@@ -1,5 +1,6 @@
 using MoviesAspNetCore.DTOs;
 using MoviesAspNetCore.Entities;
+using MoviesAspNetCore.Mapping;
 
 namespace MoviesAspNetCore.Endpoints;
 
@@ -23,15 +24,8 @@ public static class MoviesEndpoints
 
         group.MapPost("/", (CreateMovieDTO movie) =>
         {
-            Movie movieDBO = new Movie()
-            {
-                Id = _movies.Count + 1,
-                Title = movie.Title,
-                Description = movie.Description,
-                Genre = movie.Genre,
-                ReleaseDate = movie.ReleaseDate,
-                Actors = movie.Actors
-            };
+            Movie movieDBO = movie.ToMovie();
+            movieDBO.Id = _movies.Count + 1;
 
             _movies.Add(movieDBO);
 
