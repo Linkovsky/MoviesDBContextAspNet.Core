@@ -28,4 +28,41 @@ Content-Type: application/json
 }
 
 ###
-GET http://localhost:5113/movies/1
+GET http://localhost:5113/movies/2
+
+###
+GET http://localhost:5113/movies
+
+###
+PUT http://localhost:5113/movies/1
+Content-Type: application/json
+
+{
+  "id": 1,
+  "title": "Infinite",
+  "description": "A man discovers that his hallucinations are actually visions from past lives.",
+  "genre": 1,
+  "releaseDate": "2012-04-12",
+  "actors":
+  [
+    {
+
+      "name": "Mark Wahlberg",
+      "role": 1,
+      "age": 54
+    },
+    {
+      "name": "Chiwetel Ejiofor",
+      "role": 1,
+      "age": 32
+    },
+    {
+      "name": "Dylan O'Brien",
+      "role": 1,
+      "age": 55
+    }
+  ]
+}
+
+###
+DELETE http://localhost:5113/movies/1
